@@ -44,17 +44,17 @@ jobs:
 
     - name: Build & Push API Gateway image
       run: |
-        docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_API }}:latest ./api-gateway
+        docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_API }}:latest ./ds-api-gateway
         docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_API }}:latest
 
     - name: Build & Push Client Service image
       run: |
-        docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_CLIENT }}:latest ./client-service
+        docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_CLIENT }}:latest ./ds-client-service
         docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_CLIENT }}:latest
 
     - name: Build & Push Account Service image
       run: |
-        docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_ACCOUNT }}:latest ./account-service
+        docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_ACCOUNT }}:latest ./ds-account-service
         docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.REPO_ACCOUNT }}:latest
 
 
