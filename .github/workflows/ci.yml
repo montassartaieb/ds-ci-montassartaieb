@@ -27,9 +27,14 @@ jobs:
         distribution: temurin
         java-version: 17
 
-    - name: Build services with Maven
-      run: |
-        mvn -q -DskipTests package
+    - name: Build API Gateway
+      run: mvn -f api-gateway/pom.xml clean package -DskipTests
+
+    - name: Build Client Service
+      run: mvn -f client-service/pom.xml clean package -DskipTests
+
+    - name: Build Account Service
+      run: mvn -f account-service/pom.xml clean package -DskipTests
 
     - name: Login to DockerHub
       uses: docker/login-action@v3
